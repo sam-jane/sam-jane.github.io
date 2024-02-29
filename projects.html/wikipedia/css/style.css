@@ -11,6 +11,18 @@ body {
     background-color: bisque;
 }
 
+#caption {
+    text-align: center;
+    background-color: royalblue;
+    font-weight: bold;
+}
+
+#smallhead {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: medium;
+}
+
+
 #samstyle {
     text-align: center;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
