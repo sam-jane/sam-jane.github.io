@@ -1,3 +1,33 @@
 h1 {
-    color: red;
+    color: rgb(10, 9, 9);
+    text-align: center;
+    text-decoration: wavy;
+    font-weight: 900;
+}
+
+.links {
+    color: rgb(2, 2, 33);
+    text-align: center;
+    font-size: smaller;
+}
+
+.thirdblock {
+    background-color: bisque;
+    padding: 2%;
+    text-align: center;
+}
+
+header {
+    padding: 1%;
+    color: blue;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+h2 {
+    color: brown;
+    text-align: center;
+}
+
+.second-block {
+    background-color: rgb(245, 180, 69);
 }
