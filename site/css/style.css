@@ -25,9 +25,35 @@ header {
 
 h2 {
     color: brown;
+    text-transform: capitalize;
     text-align: center;
+    font-size: large;
+    padding: 2%;
+}
+
+h3 {
+    text-align: center;
+    
 }
 
 .second-block {
-    background-color: rgb(245, 180, 69);
+    background-color: bisque;
+}
+
+.first-block {
+    background-color: rgb(248, 197, 136);
+    font: bolder;
+    font-family: kodo-mono;
+}
+
+.footer-class {
+    text-align: center;
+    justify-content: center;
+    justify-content: space-around;
+    flex: 3;
+    background-color: rgb(248, 197, 136);
+}
+
+.clips-block a {
+    text-decoration: none;
 }
