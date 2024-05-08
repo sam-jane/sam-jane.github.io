@@ -1,0 +1,36 @@
+header {
+    background-color: rgb(121, 129, 136);
+    margin-bottom: 2em;
+}
+
+h1 {
+    font-family: 'kode mono';
+    text-align: left;
+    color: white;
+}
+
+.byline {
+    font-style: italic;
+    text-align: left;
+    font: 100;
+    font-family: 'kode mono';
+    color: rgb(177, 177, 37);
+    font-size: large;
+}
+
+iframe {
+    margin-top: 2em;
+    margin-bottom: 2em;
+    background-color: white;
+}
+
+body {
+    background-color: rgb(121, 129, 136);
+    font: 100;
+    color: white;
+    font-family: 'kode-mono';
+}
+
+footer {
+    text-align: left;
+}

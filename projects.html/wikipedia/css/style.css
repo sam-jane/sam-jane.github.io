@@ -1,0 +1,49 @@
+header {
+    font-family: 'Courier New'
+}
+
+#samsig {
+    text-align: center;
+    font-family: 'kode mono';
+}
+
+body {
+    background-color: bisque;
+}
+
+#caption {
+    text-align: center;
+    background-color: royalblue;
+    font-weight: bold;
+}
+
+#smallhead {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: medium;
+}
+
+
+#samstyle {
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#samsig {
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+
+#picture {
+    display: block;
+    margin: auto;
+}
+
+.bigstyle {
+    font-family: 'kode mono';
+    color: red;
+}
+
+p {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
