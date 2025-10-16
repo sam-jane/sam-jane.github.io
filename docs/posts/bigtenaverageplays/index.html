@@ -9,7 +9,7 @@
 <meta name="author" content="Sam Jane">
 <meta name="dcterms.date" content="2025-10-16">
 
-<title>Average plays run by Big Ten teams – Sam’s data discussions</title>
+<title>Does tempo equal offense success in the Big Ten? – Sam’s data discussions</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -154,7 +154,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Average plays run by Big Ten teams</h1>
+      <h1 class="title">Does tempo equal offense success in the Big Ten?</h1>
                       </div>
   </div>
     
@@ -242,6 +242,7 @@ date  (1): Date
 ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
 </div>
 </div>
+<p>Here I created a file set that filtered for just the Big Ten teams, filtering the teams in the conference. Then we took the nunmber of total plays divided by the amount of games that the teams played in.</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
@@ -252,7 +253,6 @@ date  (1): Date
 <span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Conference <span class="sc">==</span> <span class="st">"Big Ten Conference"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
-<p>Here I created a file set that filtered for just the Big Ten teams, filtering the teams in the conference. Then we took the nunmber of total plays divided by the amount of games that the teams played in.</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
