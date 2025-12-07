@@ -345,13 +345,14 @@ dbl (54): targets, interception_touchdowns, draft_season, forced_fumbles, mi...
 <span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">.groups =</span> <span class="st">"drop"</span></span>
 <span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
+<p>##Maryland’s typically a young defense. But since Michael Locksley’s took over, there’s been a drastic shift over year-to-year of wherether the Terps are playing freshman or not. They’ve played a ton in some years (2019,2021 and 2025) and barely played some in other years. I think this just shows the overall instablity during the Locksley tenure. There’s just a lack of cohesion and overall plan on how many freshman they’re going to play. They’ve tried to be more veteran heavy in recent years, as you can see, but then this season, they relied on a ton of freshman this year. Sidney Stewart, Zahir Mathis and Messiah Dellhome all played signifcant snaps and were expected to be the best players on the defense.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(md_freshman_by_year, <span class="fu">aes</span>(<span class="at">x =</span> season_year, <span class="at">y =</span> freshman_snaps)) <span class="sc">+</span></span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
 <span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="dv">2015</span><span class="sc">:</span><span class="dv">2025</span>) <span class="sc">+</span></span>
 <span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Maryland Freshman Defensive Snaps by Season"</span>,</span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Maryland football's defense has played a ton of freshman under Michael Locksley"</span>,</span>
 <span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Season"</span>,</span>
 <span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Freshman defensive snaps"</span></span>
 <span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
@@ -364,8 +365,9 @@ dbl (54): targets, interception_touchdowns, draft_season, forced_fumbles, mi...
 </div>
 </div>
 </div>
-<p>##The biggest issue I’m going to have trying to find a comparison point. I don’t really want to do this for every Big Ten team, so I think I’d just have to find one team that I could maybe stack MD up against. So that’ll be someting I can talk over with you Derek</p>
-<p>###One thing I decided I’m going to do is use articles to find who some of the youngest defenses are over the past decade in college football and scrape their data from PFF to compare them. That way we can see how the Terps stack up compared to other college football teams who have been really young over the years.</p>
+<section id="section" class="level2">
+<h2 class="anchored" data-anchor-id="section"></h2>
+</section>
 <section id="a-viz-i-have-is-looking-at-a-line-chart-but-i-also-think-a-waffle-chart-could-be-really-good-to-show-the-total-number-of-freshman-snaps-weve-played-over-the-past-decade-and-then-see-which-seasons-have-made-up-the-most-of-them.-struggling-for-the-waffle-chart-tried-putting-into-ai-for-help-but-it-wasnt-working" class="level2">
 <h2 class="anchored" data-anchor-id="a-viz-i-have-is-looking-at-a-line-chart-but-i-also-think-a-waffle-chart-could-be-really-good-to-show-the-total-number-of-freshman-snaps-weve-played-over-the-past-decade-and-then-see-which-seasons-have-made-up-the-most-of-them.-struggling-for-the-waffle-chart-tried-putting-into-ai-for-help-but-it-wasnt-working">A viz I have is looking at a line chart, but I also think a waffle chart could be really good to show the total number of freshman snaps we’ve played over the past decade and then see which seasons have made up the most of them. Struggling for the waffle chart, tried putting into AI for help, but it wasn’t working</h2>
 <div class="cell">
@@ -392,6 +394,229 @@ dbl (54): targets, interception_touchdowns, draft_season, forced_fumbles, mi...
 </div>
 </div>
 </div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>files <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">"bostoncollege2015.csv"</span>, <span class="st">"alabama2016.csv"</span>, <span class="st">"alabama2017.csv"</span>,</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">"missst2018.csv"</span>, <span class="st">"osu2019.csv"</span>, <span class="st">"marshall2020.csv"</span>,</span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">"wisconsin2021.csv"</span>, <span class="st">"airforce2022.csv"</span>, <span class="st">"michigan2023.csv"</span>,</span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">"indiana2024.csv"</span>, <span class="st">"osu2025.csv"</span></span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (f <span class="cf">in</span> files) {</span>
+<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a>  name <span class="ot">&lt;-</span> tools<span class="sc">::</span><span class="fu">file_path_sans_ext</span>(f)</span>
+<span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">assign</span>(name, <span class="fu">read_csv</span>(f))</span>
+<span id="cb25-13"><a href="#cb25-13" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Rows: 34 Columns: 59
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr  (5): team_name, jersey_number, team, position, player
+dbl (54): targets, interception_touchdowns, draft_season, forced_fumbles, mi...
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+Rows: 41 Columns: 59
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr  (5): team_name, jersey_number, team, position, player
+dbl (54): targets, interception_touchdowns, draft_season, forced_fumbles, mi...
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+Rows: 44 Columns: 59
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr  (5): team_name, jersey_number, team, position, player
+dbl (54): targets, interception_touchdowns, draft_season, forced_fumbles, mi...
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+Rows: 50 Columns: 59
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr  (5): team_name, jersey_number, team, position, player
+dbl (54): targets, interception_touchdowns, draft_season, forced_fumbles, mi...
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+Rows: 57 Columns: 59
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr  (5): team_name, jersey_number, team, position, player
+dbl (54): targets, interception_touchdowns, draft_season, forced_fumbles, mi...
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+Rows: 32 Columns: 59
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr  (5): team_name, jersey_number, team, position, player
+dbl (54): targets, interception_touchdowns, draft_season, forced_fumbles, mi...
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+Rows: 37 Columns: 59
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr  (5): team_name, jersey_number, team, position, player
+dbl (54): targets, interception_touchdowns, draft_season, forced_fumbles, mi...
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+Rows: 41 Columns: 59
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr  (5): team_name, jersey_number, team, position, player
+dbl (54): targets, interception_touchdowns, draft_season, forced_fumbles, mi...
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+Rows: 44 Columns: 59
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr  (5): team_name, jersey_number, team, position, player
+dbl (54): targets, interception_touchdowns, draft_season, forced_fumbles, mi...
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+Rows: 40 Columns: 59
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr  (5): team_name, jersey_number, team, position, player
+dbl (54): targets, interception_touchdowns, draft_season, forced_fumbles, mi...
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+Rows: 41 Columns: 59
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr  (5): team_name, jersey_number, team, position, player
+dbl (53): targets, interception_touchdowns, forced_fumbles, missed_tackles, ...
+lgl  (1): draft_season
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>bostoncollege2015 <span class="ot">&lt;-</span> bostoncollege2015 <span class="sc">|&gt;</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(eligible_season <span class="sc">==</span> <span class="dv">2019</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>alabama2016 <span class="ot">&lt;-</span> alabama2016 <span class="sc">|&gt;</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(eligible_season <span class="sc">==</span> <span class="dv">2020</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>alabama2017 <span class="ot">&lt;-</span> alabama2017 <span class="sc">|&gt;</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(eligible_season <span class="sc">==</span> <span class="dv">2021</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>missst2018 <span class="ot">&lt;-</span> missst2018 <span class="sc">|&gt;</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(eligible_season <span class="sc">==</span> <span class="dv">2022</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>osu2019 <span class="ot">&lt;-</span> osu2019 <span class="sc">|&gt;</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(eligible_season <span class="sc">==</span> <span class="dv">2023</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>marshall2020 <span class="ot">&lt;-</span> marshall2020 <span class="sc">|&gt;</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(eligible_season <span class="sc">==</span> <span class="dv">2024</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>wisconsin2021 <span class="ot">&lt;-</span> wisconsin2021 <span class="sc">|&gt;</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(eligible_season <span class="sc">==</span> <span class="dv">2025</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>airforce2022 <span class="ot">&lt;-</span> airforce2022 <span class="sc">|&gt;</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(eligible_season <span class="sc">==</span> <span class="dv">2026</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>michigan2023 <span class="ot">&lt;-</span> michigan2023 <span class="sc">|&gt;</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(eligible_season <span class="sc">==</span> <span class="dv">2027</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>indiana2024 <span class="ot">&lt;-</span> indiana2024 <span class="sc">|&gt;</span></span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(eligible_season <span class="sc">==</span> <span class="dv">2028</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>osu2025 <span class="ot">&lt;-</span> osu2025 <span class="sc">|&gt;</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(eligible_season <span class="sc">==</span> <span class="dv">2029</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tibble)</span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Years and corresponding opponents</span></span>
+<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a>years <span class="ot">&lt;-</span> <span class="dv">2015</span><span class="sc">:</span><span class="dv">2025</span></span>
+<span id="cb38-7"><a href="#cb38-7" aria-hidden="true" tabindex="-1"></a>opponents <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<span id="cb38-8"><a href="#cb38-8" aria-hidden="true" tabindex="-1"></a>  <span class="st">"bostoncollege"</span>,  <span class="co"># 2015</span></span>
+<span id="cb38-9"><a href="#cb38-9" aria-hidden="true" tabindex="-1"></a>  <span class="st">"alabama"</span>,        <span class="co"># 2016</span></span>
+<span id="cb38-10"><a href="#cb38-10" aria-hidden="true" tabindex="-1"></a>  <span class="st">"alabama"</span>,        <span class="co"># 2017</span></span>
+<span id="cb38-11"><a href="#cb38-11" aria-hidden="true" tabindex="-1"></a>  <span class="st">"missst"</span>,         <span class="co"># 2018</span></span>
+<span id="cb38-12"><a href="#cb38-12" aria-hidden="true" tabindex="-1"></a>  <span class="st">"osu"</span>,            <span class="co"># 2019</span></span>
+<span id="cb38-13"><a href="#cb38-13" aria-hidden="true" tabindex="-1"></a>  <span class="st">"marshall"</span>,       <span class="co"># 2020</span></span>
+<span id="cb38-14"><a href="#cb38-14" aria-hidden="true" tabindex="-1"></a>  <span class="st">"wisconsin"</span>,      <span class="co"># 2021</span></span>
+<span id="cb38-15"><a href="#cb38-15" aria-hidden="true" tabindex="-1"></a>  <span class="st">"airforce"</span>,       <span class="co"># 2022</span></span>
+<span id="cb38-16"><a href="#cb38-16" aria-hidden="true" tabindex="-1"></a>  <span class="st">"michigan"</span>,       <span class="co"># 2023</span></span>
+<span id="cb38-17"><a href="#cb38-17" aria-hidden="true" tabindex="-1"></a>  <span class="st">"indiana"</span>,        <span class="co"># 2024</span></span>
+<span id="cb38-18"><a href="#cb38-18" aria-hidden="true" tabindex="-1"></a>  <span class="st">"osu"</span>             <span class="co"># 2025</span></span>
+<span id="cb38-19"><a href="#cb38-19" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb38-20"><a href="#cb38-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-21"><a href="#cb38-21" aria-hidden="true" tabindex="-1"></a>summary_list <span class="ot">&lt;-</span> <span class="fu">list</span>()</span>
+<span id="cb38-22"><a href="#cb38-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-23"><a href="#cb38-23" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">seq_along</span>(years)) {</span>
+<span id="cb38-24"><a href="#cb38-24" aria-hidden="true" tabindex="-1"></a>  y   <span class="ot">&lt;-</span> years[i]</span>
+<span id="cb38-25"><a href="#cb38-25" aria-hidden="true" tabindex="-1"></a>  opp <span class="ot">&lt;-</span> opponents[i]</span>
+<span id="cb38-26"><a href="#cb38-26" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb38-27"><a href="#cb38-27" aria-hidden="true" tabindex="-1"></a>  md_df  <span class="ot">&lt;-</span> <span class="fu">get</span>(<span class="fu">paste0</span>(<span class="st">"md"</span>, y))</span>
+<span id="cb38-28"><a href="#cb38-28" aria-hidden="true" tabindex="-1"></a>  opp_df <span class="ot">&lt;-</span> <span class="fu">get</span>(<span class="fu">paste0</span>(opp, y))</span>
+<span id="cb38-29"><a href="#cb38-29" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb38-30"><a href="#cb38-30" aria-hidden="true" tabindex="-1"></a>  summary_list[[i]] <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb38-31"><a href="#cb38-31" aria-hidden="true" tabindex="-1"></a>    <span class="at">year =</span> <span class="fu">factor</span>(y),</span>
+<span id="cb38-32"><a href="#cb38-32" aria-hidden="true" tabindex="-1"></a>    <span class="at">team =</span> <span class="fu">c</span>(<span class="st">"Maryland"</span>, opp),</span>
+<span id="cb38-33"><a href="#cb38-33" aria-hidden="true" tabindex="-1"></a>    <span class="at">value =</span> <span class="fu">c</span>(</span>
+<span id="cb38-34"><a href="#cb38-34" aria-hidden="true" tabindex="-1"></a>      <span class="fu">mean</span>(md_df<span class="sc">$</span>snap_counts_defense,  <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb38-35"><a href="#cb38-35" aria-hidden="true" tabindex="-1"></a>      <span class="fu">mean</span>(opp_df<span class="sc">$</span>snap_counts_defense, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb38-36"><a href="#cb38-36" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb38-37"><a href="#cb38-37" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb38-38"><a href="#cb38-38" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb38-39"><a href="#cb38-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-40"><a href="#cb38-40" aria-hidden="true" tabindex="-1"></a>summary <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(summary_list)</span>
+<span id="cb38-41"><a href="#cb38-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-42"><a href="#cb38-42" aria-hidden="true" tabindex="-1"></a><span class="co"># Set custom colors: Maryland red, all others gray</span></span>
+<span id="cb38-43"><a href="#cb38-43" aria-hidden="true" tabindex="-1"></a>summary<span class="sc">$</span>color <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(summary<span class="sc">$</span>team <span class="sc">==</span> <span class="st">"Maryland"</span>, <span class="st">"Maryland"</span>, <span class="st">"Opponent"</span>)</span>
+<span id="cb38-44"><a href="#cb38-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-45"><a href="#cb38-45" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(summary, <span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> value, <span class="at">fill =</span> color)) <span class="sc">+</span></span>
+<span id="cb38-46"><a href="#cb38-46" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">position =</span> <span class="fu">position_dodge</span>(<span class="at">width =</span> <span class="fl">0.8</span>), <span class="at">width =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
+<span id="cb38-47"><a href="#cb38-47" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(</span>
+<span id="cb38-48"><a href="#cb38-48" aria-hidden="true" tabindex="-1"></a>    <span class="at">values =</span> <span class="fu">c</span>(</span>
+<span id="cb38-49"><a href="#cb38-49" aria-hidden="true" tabindex="-1"></a>      <span class="st">"Maryland"</span> <span class="ot">=</span> <span class="st">"red"</span>,</span>
+<span id="cb38-50"><a href="#cb38-50" aria-hidden="true" tabindex="-1"></a>      <span class="st">"Opponent"</span> <span class="ot">=</span> <span class="st">"gray80"</span></span>
+<span id="cb38-51"><a href="#cb38-51" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb38-52"><a href="#cb38-52" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb38-53"><a href="#cb38-53" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb38-54"><a href="#cb38-54" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Season"</span>,</span>
+<span id="cb38-55"><a href="#cb38-55" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Freshman Defensive Snap Count"</span>,</span>
+<span id="cb38-56"><a href="#cb38-56" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Maryland's defense typically plays way more freshman than the No. 1 defense in the country"</span>,</span>
+<span id="cb38-57"><a href="#cb38-57" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill =</span> <span class="st">""</span></span>
+<span id="cb38-58"><a href="#cb38-58" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb38-59"><a href="#cb38-59" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb38-60"><a href="#cb38-60" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb38-61"><a href="#cb38-61" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.position =</span> <span class="st">"none"</span>,</span>
+<span id="cb38-62"><a href="#cb38-62" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>)</span>
+<span id="cb38-63"><a href="#cb38-63" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="background2_files/figure-html/unnamed-chunk-32-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>##But if Maryland wants to reach the level that its trying to achieve, it needs to either bring in more talented freshman, or get older. The Terps, compared to the No.&nbsp;1 defense in the nation over the years, played more freshman than that unit seven times since 2015. While some of these teams are substantially better than the Terps have been historically, it’s a good barometer to look too when considering how Maryland’s defense can get better. A number of those units, including Michigan, Ohio State and Indiana all came from the Big Ten.</p>
 
 
 </section>
